@@ -1,70 +1,39 @@
 function addLights() {
-  var pointColor = "#ccffcc";
-  var color= '#ed0735';
+  var pointColor = '#ccffcc';
+  var finishColor= '#ff0000';
+  var startColor = '#1be833';
   var pointLight = new THREE.PointLight(pointColor);
-  pointLight.distance = 50;
+  pointLight.distance = 80;
+  var distance = pointLight.distance;
+  var height = 15;
   scene.add(pointLight);
 
+  addLight(160,height,12,distance,finishColor);
+  addLight(185,height,15,distance,pointColor);
+  addLight(95,height,15,distance,pointColor);
+  addLight(122,height,70,distance,pointColor);
+  addLight(122,height,120,distance,pointColor);
+  addLight(122,height,170,distance,pointColor);
+  addLight(95,height,170,distance,pointColor);
+  addLight(110,height,220,distance,pointColor);
+  addLight(122,height,220,distance,pointColor);
+  addLight(142,height,220,distance,pointColor);
+  addLight(154,height,260,distance,pointColor);
+  addLight(154,height,300,distance,pointColor);
+  addLight(170,height,320,distance,startColor);
+
+}
+
+function addLight(x,y,z,d,color) {
   pointLight = new THREE.PointLight(color);
-  pointLight.position.set(160, 5, 15)
-  pointLight.distance = 100;
+  pointLight.position.set(x, y, z)
+  pointLight.distance = d;
+  var material = new THREE.MeshLambertMaterial({
+    color:0x00ff00
+  });
+  var sphereGeometry = new THREE.SphereGeometry( 1, 1, 1 );
+	this.sphere = new THREE.Mesh( sphereGeometry, material );
+	sphere.position.set(x, y, z);
+	scene.add(sphere);
   scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(210, 5, 200)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(70, 5, 70)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(200, 5, 0)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(0, 5, 200)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(100, 5, 200)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(0, 5, 70)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(300, 5, 300)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(300, 5, 150)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight.position.set(200, 5, 260)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight.position.set(350, 5, 350)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight = new THREE.PointLight(pointColor);
-  pointLight.position.set(70, 5, 0)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
-  pointLight.position.set(100, 5, 100)
-  pointLight.distance = 100;
-  scene.add(pointLight);
-
 }
